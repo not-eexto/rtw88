@@ -191,6 +191,7 @@ extern bool rtw_bf_support;
 extern bool rtw_disable_lps_deep_mode;
 extern unsigned int rtw_debug_mask;
 extern bool rtw_edcca_enabled;
+extern int rtw_ant_sel;
 extern const struct ieee80211_ops rtw_ops;
 
 #define RTW_MAX_CHANNEL_NUM_2G 14

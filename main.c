@@ -26,6 +26,8 @@ EXPORT_SYMBOL(rtw_disable_lps_deep_mode);
 bool rtw_bf_support = true;
 unsigned int rtw_debug_mask;
 EXPORT_SYMBOL(rtw_debug_mask);
+int rtw_ant_sel;
+EXPORT_SYMBOL(rtw_ant_sel);
 /* EDCCA is enabled during normal behavior. For debugging purpose in
  * a noisy environment, it can be disabled via edcca debugfs. Because
  * all rtw88 devices will probably be affected if environment is noisy,
@@ -38,10 +40,12 @@ bool rtw_edcca_enabled = true;
 module_param_named(disable_lps_deep, rtw_disable_lps_deep_mode, bool, 0644);
 module_param_named(support_bf, rtw_bf_support, bool, 0644);
 module_param_named(debug_mask, rtw_debug_mask, uint, 0644);
+module_param_named(ant_sel, rtw_ant_sel, int, 0444);
 
 MODULE_PARM_DESC(disable_lps_deep, "Set Y to disable Deep PS");
 MODULE_PARM_DESC(support_bf, "Set Y to enable beamformee support");
 MODULE_PARM_DESC(debug_mask, "Debugging mask");
+MODULE_PARM_DESC(ant_sel, "Force antenna selection (0: auto/HP quirk, 1: Main/RFE2, 2: Aux/RFE4)");
 
 static struct ieee80211_channel rtw_channeltable_2g[] = {
 	{.center_freq = 2412, .hw_value = 1,},
